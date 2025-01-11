@@ -842,7 +842,7 @@ export function comandosInfo(botInfo){
                     mensagem: "👋 Olá, @{p1}\n"+
                     "Seja bem vindo(a) ao grupo *{p2}*\n\n"+
                     "{p3}"+
-                    "Digite "+`*${prefixo}regras*`+" para ver os comandos."
+                    "Digite "+`*${prefixo}regras*`+" para ver as regras do grupo."
                 }
             },
             afake: {
