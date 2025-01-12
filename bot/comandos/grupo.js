@@ -476,20 +476,29 @@ export const grupo = async(c, mensagemBaileys, botInfo) => {
                 }
                 break
 
-            case 'adms':
-                try{
-                    let usuarioTexto = texto_recebido
-                    let respostaMarcar = criarTexto(comandos_info.grupo.adms.msgs.resposta_titulo, admins.length)
-                    if(usuarioTexto.length > 0) respostaMarcar += criarTexto(comandos_info.grupo.adms.msgs.mensagem, usuarioTexto)
-                    for (let adm of admins) {
-                        respostaMarcar += criarTexto(comandos_info.grupo.adms.msgs.resposta_itens, adm.replace(/@s.whatsapp.net/g, ''))
+                case 'adms':
+                    try {
+                        if (!mensagem_grupo) 
+                            return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.grupo, mensagem)
+                        if (!usuario_admin) 
+                            return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.apenas_admin , mensagem)
+                
+                        let usuarioTexto = texto_recebido
+                        let respostaMarcar = criarTexto(comandos_info.grupo.adms.msgs.resposta_titulo, admins.length)
+                        if(usuarioTexto.length > 0) 
+                            respostaMarcar += criarTexto(comandos_info.grupo.adms.msgs.mensagem, usuarioTexto)
+                        
+                        for (let adm of admins) {
+                            respostaMarcar += criarTexto(comandos_info.grupo.adms.msgs.resposta_itens, adm.replace(/@s.whatsapp.net/g, ''))
+                        }
+                        
+                        let mensagemAlvo = mensagem_citada ? citacao.mensagem : mensagem
+                        await socket.responderComMencoes(c, id_chat, respostaMarcar, admins, mensagemAlvo)
+                    } catch(err) {
+                        throw err
                     }
-                    let mensagemAlvo = mensagem_citada ? citacao.mensagem : mensagem
-                    await socket.responderComMencoes(c, id_chat, respostaMarcar, admins, mensagemAlvo)
-                } catch(err){
-                    throw err
-                }
-                break
+                    break
+                
 
             case "dono":
                 try{
