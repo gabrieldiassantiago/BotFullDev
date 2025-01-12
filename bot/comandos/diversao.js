@@ -118,65 +118,6 @@ export const diversao = async (c, mensagemBaileys, botInfo) => {
                     throw err
                 }
                 break
-            
-                case 'viadometro':
-                    try {
-                        if (!mensagem_grupo) 
-                            return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.grupo, mensagem)
-                        if (!usuario_admin) 
-                            return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.apenas_admin , mensagem)
-                
-                        if(!mensagem_citada && mencionados.length == 0) 
-                            return await socket.responderTexto(c, id_chat, erroComandoMsg(comando, botInfo), mensagem)
-                        if(mencionados.length > 1) 
-                            return await socket.responderTexto(c, id_chat, comandos_info.diversao.viadometro.msgs.apenas_um, mensagem)
-                        
-                        let respostas = comandos_info.diversao.viadometro.msgs.respostas
-                        let indexAleatorio = Math.floor(Math.random() * respostas.length), idResposta = null, alvo = null
-                        if(mencionados.length == 1) 
-                            idResposta = mensagem, alvo = mencionados[0]
-                        else 
-                            idResposta = citacao.mensagem, alvo = citacao.remetente
-                        
-                        if(numero_dono == alvo) 
-                            indexAleatorio = 0
-                        
-                        let respostaTexto = criarTexto(comandos_info.diversao.viadometro.msgs.resposta, respostas[indexAleatorio])
-                        await socket.responderTexto(c, id_chat, respostaTexto, idResposta)
-                    } catch(err) {
-                        throw err
-                    }
-                    break
-                
-                    case 'bafometro':
-                        try {
-                            if (!mensagem_grupo) 
-                                return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.grupo, mensagem)
-                            if (!usuario_admin) 
-                                return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.apenas_admin , mensagem)
-                    
-                            if(!mensagem_citada && mencionados.length == 0) 
-                                return await socket.responderTexto(c, id_chat, erroComandoMsg(comando, botInfo), mensagem)
-                            if (mencionados.length > 1) 
-                                return await socket.responderTexto(c, id_chat, comandos_info.diversao.bafometro.msgs.apenas_um, mensagem)
-                            
-                            let respostas = comandos_info.diversao.bafometro.msgs.respostas
-                            let indexAleatorio = Math.floor(Math.random() * respostas.length), idResposta = null, alvo = null
-                            if(mencionados.length == 1) 
-                                idResposta = mensagem, alvo = mencionados[0]
-                            else 
-                                idResposta = citacao.mensagem, alvo = citacao.remetente
-                            
-                            if(numero_dono == alvo) 
-                                indexAleatorio = 0
-                            
-                            let respostaTexto = criarTexto(comandos_info.diversao.bafometro.msgs.resposta, respostas[indexAleatorio])
-                            await socket.responderTexto(c, id_chat, respostaTexto, idResposta)
-                        } catch(err) {
-                            throw err
-                        }
-                        break
-                    
 
             case 'chance':
                 try {

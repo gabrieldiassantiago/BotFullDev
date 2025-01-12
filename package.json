@@ -27,6 +27,7 @@
     "format-duration-time": "^1.5.4",
     "fs-extra": "^9.0.1",
     "jimp": "^0.16.1",
+    "lbot-whatsapp": "file:",
     "link-preview-js": "^3.0.5",
     "moment-timezone": "^0.5.31",
     "node-cache": "^5.1.2",

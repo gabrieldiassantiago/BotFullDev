@@ -1,3 +1,4 @@
+
 export const menuPrincipal  = (botInfo)=> { 
     let {prefixo} = botInfo
     return `|

@@ -847,9 +847,7 @@ export function comandosInfo(botInfo){
                     ligado: "✅ O recurso de boas vindas foi ativado com sucesso",
                     desligado: "✅ O recurso de boas vindas foi desativado com sucesso",
                     mensagem: "👋 Olá, @{p1}\n"+
-                    "Seja bem vindo(a) ao grupo *{p2}*\n\n"+
-                    "{p3}"+
-                    "Digite "+`*${prefixo}regras*`+" para ver as regras do grupo."
+                    "Seja bem vindo(a) ao grupo *{p2}*\n\n"
                 }
             },
             afake: {
