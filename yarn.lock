@@ -2638,7 +2638,7 @@ keyv@^3.0.0:
     format-duration-time "^1.5.4"
     fs-extra "^9.0.1"
     jimp "^0.16.1"
-    lbot-whatsapp "file:../../../../AppData/Local/Yarn/Cache/v6/npm-lbot-whatsapp-2.10.8-b60b8a70-2cd6-4063-ab0a-e260b5a7dfd5-1736708602826/node_modules/lbot-whatsapp"
+    lbot-whatsapp "file:../../../../AppData/Local/Yarn/Cache/v6/npm-lbot-whatsapp-2.10.8-8f5730e5-f210-4e2e-aac2-84c4534737b5-1736709154448/node_modules/lbot-whatsapp"
     link-preview-js "^3.0.5"
     moment-timezone "^0.5.31"
     node-cache "^5.1.2"
