@@ -85,6 +85,13 @@ export const info = async(c, mensagemBaileys, botInfo) => {
             
             case `menu`:
                 try{
+                    if (!usuario_admin) {
+                        return await socket.responderTexto(
+                            c, 
+                            id_chat, 
+                            mensagem
+                        );
+                    }
                     let dadosUsuario = await usuarios.obterDadosUsuario(remetente)
                     let maxComandosDia = botInfo.limite_diario.limite_tipos[dadosUsuario.tipo].comandos || "Sem limite"
                     let totalComandos = dadosUsuario.comandos_total
@@ -106,20 +113,20 @@ export const info = async(c, mensagemBaileys, botInfo) => {
                         let usuarioOpcao = texto_recebido
                         let menuResposta = menu.menuPrincipal(botInfo)
                         switch(usuarioOpcao){
-                            case "15":
+                            case "100":
                                 menuResposta = menu.menuInfoSuporte(botInfo)
                                 break
                             case "1":
                                 menuResposta = menu.menuUtilidades(botInfo)
                                 break
-                            case "16":
+                            case "101":
                                 menuResposta = menu.menuDownload(botInfo)
                                 break
                             case "2":
                                 if(mensagem_grupo) menuResposta = menu.menuGrupo(usuario_admin, botInfo)
                                 else return await socket.responderTexto(c, id_chat, comandos_info.outros.permissao.grupo, mensagem)
                                 break
-                            case "17":
+                            case "102":
                                 menuResposta = menu.menuDiversao(mensagem_grupo, botInfo)
                                 break
                         }
@@ -135,6 +142,4 @@ export const info = async(c, mensagemBaileys, botInfo) => {
         err.message = `${comando} - ${err.message}`
         consoleErro(err, "INFO")
     }
-    
-
 }
