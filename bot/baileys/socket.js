@@ -164,10 +164,21 @@ export const responderArquivoBuffer = async(c, tipo, id_chat, buffer, legenda, m
     }
 }
 
-export const responderComMencoes = async(c, id_chat, texto, mencionados, mensagemCitacao)=>{ 
-    await atualizarPresenca(c, id_chat, "composing")
-    return await c.sendMessage(id_chat, {text: texto , mentions: mencionados}, {quoted: mensagemCitacao})
+export const responderComMencoes = async(c, id_chat, texto, mencionados, mensagemCitacao) => { 
+    console.log("Texto:", texto);
+    console.log("Mencionados:", mencionados);
+    console.log("Mensagem de Citação:", mensagemCitacao);
+    
+    await atualizarPresenca(c, id_chat, "composing");
+    
+    try {
+        return await c.sendMessage(id_chat, {text: texto, mentions: mencionados}, {quoted: mensagemCitacao});
+    } catch (err) {
+        console.error("Erro ao enviar mensagem com mencões:", err);
+        throw err;
+    }
 }
+
 
 
 // Grupos
