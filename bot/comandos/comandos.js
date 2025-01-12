@@ -7,15 +7,23 @@ export function comandosInfo(botInfo){
                 descricao: '',
                 guia: `Ex: *${prefixo}menu* - Exibe o menu de comandos gerais.\n`,
                 msgs: {
-                    resposta_comum: "Olá, *{p1}*\n"+
-                    "Tipo de Usuário : *{p2}*\n"+
-                    "Comandos feitos : *{p3}*\n",
+                    resposta_comum: "Olá, *{p1}*\n",
                     resposta_limite_diario: "Olá, *{p1}*\n"+
                     "Limite diário : *{p2}/{p3}*\n"+
                     "Tipo de Usuário : *{p4}*\n"+
                     "Comandos feitos : *{p5}*\n"
                 }
             },
+
+            glubglub: {
+                descricao: '',
+                guia: `Ex: *${prefixo}glubglub* - Marca um número específico previamente configurado.\n`,
+                msgs: {
+                    resposta: "🌊 Glub glub! O número marcado é: @{p1}",
+                    sem_numero: "🌊 Glub glub! Nenhum número foi configurado para este comando."
+                }
+            },
+            
             reportar: {
                 descricao: '',
                 guia: `Ex: *${prefixo}reportar* mensagem - Reporta uma mensagem para a administração do Bot.\n`,
@@ -50,8 +58,7 @@ export function comandosInfo(botInfo){
                     "*Online desde* : {p3}\n"+
                     "*Comandos executados* : {p4}\n"+
                     "*Contato do criador* : wa.me/{p5}\n"+
-                    "*Versão atual* : {p6}\n"+
-                    ""
+                    "*Versão atual* : 1.5 "
                 }
             }
         },
@@ -840,9 +847,7 @@ export function comandosInfo(botInfo){
                     ligado: "✅ O recurso de boas vindas foi ativado com sucesso",
                     desligado: "✅ O recurso de boas vindas foi desativado com sucesso",
                     mensagem: "👋 Olá, @{p1}\n"+
-                    "Seja bem vindo(a) ao grupo *{p2}*\n\n"+
-                    "{p3}"+
-                    "Digite "+`*${prefixo}menu*`+" para ver os comandos."
+                    "Seja bem vindo(a) ao grupo *{p2}*\n\n"
                 }
             },
             afake: {
