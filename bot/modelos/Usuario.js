@@ -68,5 +68,4 @@ export class Usuario {
     async resetarComandosDiaUsuario(id_usuario){
         await db.updateAsync({id_usuario}, {$set:{comandos_dia : 0}})
     }
-
 }
